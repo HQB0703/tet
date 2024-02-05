@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lì xì nè=))</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+   
+</head>
+<body>
+
+    <div class="header">
+        <h1>LÌ XÌ TẾT</h1>
+    </div>
+
+    
+    <div class="animated-box" id="box"></div>
+    <div class="animated-box duplicate" id="box2"></div>
+
+    <!-- Move buttons outside m-header -->
+    <div class="button">
+        <button class="yes">Nhận lì xì</button>
+        <button class="no" onclick="showPopup()">Lì xì cho t</button>
+    </div>
+
+    <!-- Popup -->
+    <div class="popup" id="popup">
+        <span class="popup-close" onclick="hidePopup()">X</span>
+
+        <img src="qr.jpg" alt="QR Code" style="width: 80%; height:80%;">
+
+        <div class="but2">
+            <button onclick="downloadQR()" >Tải QR</button>
+            <button onclick="openLink()" >Open Link</button>
+        </div>
+
+        
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

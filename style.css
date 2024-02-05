@@ -1,0 +1,171 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent vertical scroll */
+}
+.header {
+    font-family: "Nunito", sans-serif;
+    background-color: red;
+    color: white;
+    padding: 10px;
+
+    text-align: center;
+    position: relative;
+    z-index: 5;
+    outline: 5px solid rgb(105, 105, 105);
+}
+.m-header {
+    position: relative;
+    justify-content: center; 
+    align-items: center; 
+    z-index: 5;
+    display: flex;
+    height: calc(100vh - 100px); /* Adjust this based on your design */
+}
+.animated-box {
+    width: 100%;
+    z-index: 4;
+    height: calc(100vh - 100px);
+
+    background-image: url("box.jpg");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: red; /* Add this line to fill missing parts with red color */
+    animation: slide-up 2s ease-out;
+    position: absolute;
+    top: 100px;
+}
+
+.animated-box.duplicate {
+    background-color: rgb(255, 242, 2);
+    animation-delay: 0.2s;
+    z-index: 3;
+    background-image: none;
+}
+
+@keyframes slide-up {
+    30% { 
+        transform: translateY(0%);
+    }
+    
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+/* Add styles for the buttons */
+.button {
+    font-family: "Nunito", sans-serif;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    z-index: 2;
+}
+
+.but2 {
+    font-family: "Nunito", sans-serif;
+    position: fixed;
+    top: 50%;
+    left: 78%;
+    z-index: 2; 
+}
+.button button {
+    margin: 0 10px;
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.button button:hover {
+    transform: scale(1.1);
+}
+
+/* Set higher z-index for SVG to ensure it's above buttons */
+.m-header svg {
+    z-index: 3;
+}
+
+/* Add styles for the "Yes" button */
+.button button.yes {
+    background-color: green;
+}
+
+/* Add styles for the "No" button */
+.button button.no {
+    background-color: red;
+}
+
+/* Add styles for the popup */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75vh;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    display: none;
+    animation: popup-appear 0.3s ease-in-out;
+    border-radius: 10px; /* Add this line to round the corners */
+}
+@keyframes popup-appear {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.popup-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.popup-close:hover {
+    background-color: black;
+}
+.flower {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-image: url(https://www.pngkit.com/png/full/278-2781779_nam-canh-hoa-mai-hoa-mai-clipart.png);
+    background-size: cover;
+    pointer-events: none; /* Prevent interaction with flowers */
+    animation: fall-rotate 4s linear infinite;
+    animation-delay: calc(0.5s * var(--index)); /* Add random delay */
+}
+
+@keyframes fall-rotate {
+    0% {
+        transform: translateY(-100%) translateX(0%) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) translateX(50%) rotate(360deg);
+    }
+}
